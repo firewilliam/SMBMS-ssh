@@ -1,5 +1,7 @@
 package com.xb.service.impl;
 
+import java.util.List;
+
 import com.xb.dao.UserDao;
 import com.xb.entity.User;
 import com.xb.service.UserService;
@@ -25,6 +27,16 @@ public class UserServiceImpl implements UserService{
 
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
+	}
+
+	@Override
+	public List<User> getUserList() {
+		List<User> result=userDao.getUserList();
+		if(result!=null&&result.size()>0){
+			return result;
+		}else{
+			return null;
+		}
 	}
 
 	

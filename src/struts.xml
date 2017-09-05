@@ -6,6 +6,10 @@
 		<result name="success">/jsp/frame.jsp</result>
 		<result name="input">/login.jsp</result>
 	</action>
+	<action name="list" class="com.xb.action.UserAction" method="list">
+		<result name="success">/jsp/userlist.jsp</result>
+		<result name="none">/jsp/frame.jsp</result>
+	</action>
 </package>
 
 </struts>    

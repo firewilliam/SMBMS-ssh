@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              <ul class="list">
               <li ><a href="${pageContext.request.contextPath }/jsp/bill.do?method=query">订单管理</a></li>
               <li><a href="${pageContext.request.contextPath }/jsp/provider.do?method=query">供应商管理</a></li>
-              <li><a href="${pageContext.request.contextPath }/jsp/user.do?method=query">用户管理</a></li>
+              <li><a href="${pageContext.request.contextPath }/jsp/list">用户管理</a></li>
               <li><a href="${pageContext.request.contextPath }/jsp/pwdmodify.jsp">密码修改</a></li>
               <li><a href="${pageContext.request.contextPath }/jsp/logout.do">退出系统</a></li>
              </ul>
