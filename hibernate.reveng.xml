@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="smbms_address" catalog="smbms"
+		class="com.xb.entity.Address">
+	</table>
+	<table name="smbms_bill" catalog="smbms"
+		class="com.xb.entity.Bill">
+	</table>
+	<table name="smbms_provider" catalog="smbms"
+		class="com.xb.entity.Provider">
+	</table>
+	<table name="smbms_role" catalog="smbms"
+		class="com.xb.entity.Role">
+	</table>
+	<table name="smbms_user" catalog="smbms" class="com.xb.entity.User"></table>
+</hibernate-reverse-engineering>
