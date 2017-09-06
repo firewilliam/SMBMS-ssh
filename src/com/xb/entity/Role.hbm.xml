@@ -40,5 +40,13 @@
                 <comment>修改时间</comment>
             </column>
         </property>
+        <set name="users" inverse="true">
+            <key>
+                <column name="userRole">
+                    <comment>用户角色（取自角色表-角色id）</comment>
+                </column>
+            </key>
+            <one-to-many class="com.xb.entity.User" />
+        </set>
     </class>
 </hibernate-mapping>

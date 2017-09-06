@@ -65,5 +65,13 @@
                 <comment>更新者（userId）</comment>
             </column>
         </property>
+        <set name="bills" inverse="true">
+            <key>
+                <column name="providerId">
+                    <comment>供应商ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.xb.entity.Bill" />
+        </set>
     </class>
 </hibernate-mapping>

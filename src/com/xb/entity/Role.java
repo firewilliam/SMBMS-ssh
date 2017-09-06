@@ -1,6 +1,8 @@
 package com.xb.entity;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Role entity. @author MyEclipse Persistence Tools
@@ -17,6 +19,7 @@ public class Role implements java.io.Serializable {
 	private Timestamp creationDate;
 	private Long modifyBy;
 	private Timestamp modifyDate;
+	private Set users = new HashSet(0);
 
 	// Constructors
 
@@ -26,13 +29,15 @@ public class Role implements java.io.Serializable {
 
 	/** full constructor */
 	public Role(String roleCode, String roleName, Long createdBy,
-			Timestamp creationDate, Long modifyBy, Timestamp modifyDate) {
+			Timestamp creationDate, Long modifyBy, Timestamp modifyDate,
+			Set users) {
 		this.roleCode = roleCode;
 		this.roleName = roleName;
 		this.createdBy = createdBy;
 		this.creationDate = creationDate;
 		this.modifyBy = modifyBy;
 		this.modifyDate = modifyDate;
+		this.users = users;
 	}
 
 	// Property accessors
@@ -91,6 +96,14 @@ public class Role implements java.io.Serializable {
 
 	public void setModifyDate(Timestamp modifyDate) {
 		this.modifyDate = modifyDate;
+	}
+
+	public Set getUsers() {
+		return this.users;
+	}
+
+	public void setUsers(Set users) {
+		this.users = users;
 	}
 
 }

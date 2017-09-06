@@ -10,6 +10,11 @@
             <column name="id" />
             <generator class="identity" />
         </id>
+        <many-to-one name="provider" class="com.xb.entity.Provider" fetch="select">
+            <column name="providerId">
+                <comment>供应商ID</comment>
+            </column>
+        </many-to-one>
         <property name="billCode" type="java.lang.String">
             <column name="billCode" length="20">
                 <comment>账单编码</comment>
@@ -63,11 +68,6 @@
         <property name="modifyDate" type="java.sql.Timestamp">
             <column name="modifyDate" length="19">
                 <comment>更新时间</comment>
-            </column>
-        </property>
-        <property name="providerId" type="java.lang.Long">
-            <column name="providerId">
-                <comment>供应商ID</comment>
             </column>
         </property>
     </class>

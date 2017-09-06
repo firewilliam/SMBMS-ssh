@@ -11,6 +11,7 @@ public class Bill implements java.io.Serializable {
 	// Fields
 
 	private Long id;
+	private Provider provider;
 	private String billCode;
 	private String productName;
 	private String productDesc;
@@ -22,7 +23,6 @@ public class Bill implements java.io.Serializable {
 	private Timestamp creationDate;
 	private Long modifyBy;
 	private Timestamp modifyDate;
-	private Long providerId;
 
 	// Constructors
 
@@ -31,10 +31,11 @@ public class Bill implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Bill(String billCode, String productName, String productDesc,
-			String productUnit, Double productCount, Double totalPrice,
-			Integer isPayment, Long createdBy, Timestamp creationDate,
-			Long modifyBy, Timestamp modifyDate, Long providerId) {
+	public Bill(Provider provider, String billCode, String productName,
+			String productDesc, String productUnit, Double productCount,
+			Double totalPrice, Integer isPayment, Long createdBy,
+			Timestamp creationDate, Long modifyBy, Timestamp modifyDate) {
+		this.provider = provider;
 		this.billCode = billCode;
 		this.productName = productName;
 		this.productDesc = productDesc;
@@ -46,7 +47,6 @@ public class Bill implements java.io.Serializable {
 		this.creationDate = creationDate;
 		this.modifyBy = modifyBy;
 		this.modifyDate = modifyDate;
-		this.providerId = providerId;
 	}
 
 	// Property accessors
@@ -57,6 +57,14 @@ public class Bill implements java.io.Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Provider getProvider() {
+		return this.provider;
+	}
+
+	public void setProvider(Provider provider) {
+		this.provider = provider;
 	}
 
 	public String getBillCode() {
@@ -145,14 +153,6 @@ public class Bill implements java.io.Serializable {
 
 	public void setModifyDate(Timestamp modifyDate) {
 		this.modifyDate = modifyDate;
-	}
-
-	public Long getProviderId() {
-		return this.providerId;
-	}
-
-	public void setProviderId(Long providerId) {
-		this.providerId = providerId;
 	}
 
 }

@@ -12,6 +12,7 @@ public class User implements java.io.Serializable {
 	// Fields
 
 	private Long id;
+	private Role role;
 	private String userCode;
 	private String userName;
 	private String userPassword;
@@ -19,7 +20,6 @@ public class User implements java.io.Serializable {
 	private Date birthday;
 	private String phone;
 	private String address;
-	private Long userRole;
 	private Long createdBy;
 	private Timestamp creationDate;
 	private Long modifyBy;
@@ -32,10 +32,11 @@ public class User implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public User(String userCode, String userName, String userPassword,
-			Integer gender, Date birthday, String phone, String address,
-			Long userRole, Long createdBy, Timestamp creationDate,
+	public User(Role role, String userCode, String userName,
+			String userPassword, Integer gender, Date birthday, String phone,
+			String address, Long createdBy, Timestamp creationDate,
 			Long modifyBy, Timestamp modifyDate) {
+		this.role = role;
 		this.userCode = userCode;
 		this.userName = userName;
 		this.userPassword = userPassword;
@@ -43,7 +44,6 @@ public class User implements java.io.Serializable {
 		this.birthday = birthday;
 		this.phone = phone;
 		this.address = address;
-		this.userRole = userRole;
 		this.createdBy = createdBy;
 		this.creationDate = creationDate;
 		this.modifyBy = modifyBy;
@@ -58,6 +58,14 @@ public class User implements java.io.Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Role getRole() {
+		return this.role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	public String getUserCode() {
@@ -114,14 +122,6 @@ public class User implements java.io.Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public Long getUserRole() {
-		return this.userRole;
-	}
-
-	public void setUserRole(Long userRole) {
-		this.userRole = userRole;
 	}
 
 	public Long getCreatedBy() {

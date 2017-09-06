@@ -1,6 +1,8 @@
 package com.xb.entity;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Provider entity. @author MyEclipse Persistence Tools
@@ -22,6 +24,7 @@ public class Provider implements java.io.Serializable {
 	private Timestamp creationDate;
 	private Timestamp modifyDate;
 	private Long modifyBy;
+	private Set bills = new HashSet(0);
 
 	// Constructors
 
@@ -33,7 +36,7 @@ public class Provider implements java.io.Serializable {
 	public Provider(String proCode, String proName, String proDesc,
 			String proContact, String proPhone, String proAddress,
 			String proFax, Long createdBy, Timestamp creationDate,
-			Timestamp modifyDate, Long modifyBy) {
+			Timestamp modifyDate, Long modifyBy, Set bills) {
 		this.proCode = proCode;
 		this.proName = proName;
 		this.proDesc = proDesc;
@@ -45,6 +48,7 @@ public class Provider implements java.io.Serializable {
 		this.creationDate = creationDate;
 		this.modifyDate = modifyDate;
 		this.modifyBy = modifyBy;
+		this.bills = bills;
 	}
 
 	// Property accessors
@@ -143,6 +147,14 @@ public class Provider implements java.io.Serializable {
 
 	public void setModifyBy(Long modifyBy) {
 		this.modifyBy = modifyBy;
+	}
+
+	public Set getBills() {
+		return this.bills;
+	}
+
+	public void setBills(Set bills) {
+		this.bills = bills;
 	}
 
 }

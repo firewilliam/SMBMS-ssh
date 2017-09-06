@@ -10,6 +10,11 @@
             <column name="id" />
             <generator class="identity" />
         </id>
+        <many-to-one name="role" class="com.xb.entity.Role" fetch="select">
+            <column name="userRole">
+                <comment>用户角色（取自角色表-角色id）</comment>
+            </column>
+        </many-to-one>
         <property name="userCode" type="java.lang.String">
             <column name="userCode" length="15">
                 <comment>用户编码</comment>
@@ -43,11 +48,6 @@
         <property name="address" type="java.lang.String">
             <column name="address" length="30">
                 <comment>地址</comment>
-            </column>
-        </property>
-        <property name="userRole" type="java.lang.Long">
-            <column name="userRole">
-                <comment>用户角色（取自角色表-角色id）</comment>
             </column>
         </property>
         <property name="createdBy" type="java.lang.Long">
