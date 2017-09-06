@@ -1,6 +1,7 @@
 package com.xb.action;
 
 import java.util.List;
+import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.xb.entity.User;
@@ -11,13 +12,14 @@ public class UserAction {
 	private User user;
 	private List<User> userList;
 	private String error;
+	private Map<String, Object> userSession;
 	
 	public String login(){
 		User result=userService.login(user);
 		if(result!=null&&result.getUserPassword().equals(user.getUserPassword())){
-			String userName=result.getUserName();
-			System.out.println(userName);
-			ActionContext.getContext().getSession().put("userSession", userName);
+			//此处必须为userSession赋值为ActionContext.getContext().getSession()，否则为空指针
+			userSession=ActionContext.getContext().getSession();
+			userSession.put("userName", result.getUserName());
 			return "success";
 		}else{
 			error="用户不存在";
@@ -35,6 +37,19 @@ public class UserAction {
 		}
 	}
 	
+	
+	
+	
+
+	
+	public Map<String, Object> getUserSession() {
+		return userSession;
+	}
+
+	public void setUserSession(Map<String, Object> userSession) {
+		this.userSession = userSession;
+	}
+
 	public String getError() {
 		return error;
 	}
