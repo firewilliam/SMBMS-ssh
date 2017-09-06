@@ -14,7 +14,11 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 	public User findByUser(User user) {
 		String hql="from User u where u.userCode=? and u.userPassword=?";
 		List<User> list=this.getHibernateTemplate().find(hql,new String[]{user.getUserCode(),user.getUserPassword()});
-		return list.get(0);
+		if(list!=null&&list.size()>0){
+			return list.get(0);
+		}else{
+			return null;
+		}
 	}
 
 	@Override
