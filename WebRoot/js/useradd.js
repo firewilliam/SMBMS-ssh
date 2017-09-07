@@ -46,6 +46,7 @@ $(function(){
 			}
 		},
 		error:function(data){//当访问时候，404，500 等非200的错误状态码
+			alert("11111");
 			validateTip(userRole.next(),{"color":"red"},imgNo+" 获取用户角色列表error",false);
 		}
 	});

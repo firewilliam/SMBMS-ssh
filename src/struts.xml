@@ -15,7 +15,10 @@
 		<result name="none">/jsp/frame.jsp</result>
 	</action>
 	<action name="roleList" class="com.xb.action.RoleAction" method="getRoleList">
-		<result type="json" name="success"></result>
+		<result type="json" name="success"><!--
+		这行不知道干嘛的，但是需要,而且必须是root
+			--><param name="root">data</param>
+		</result>
 	</action>
 </package>
 

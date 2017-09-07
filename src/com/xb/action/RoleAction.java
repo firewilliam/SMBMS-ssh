@@ -21,15 +21,8 @@ public class RoleAction {
 				System.out.println(r.getRoleName());
 			}
 			
-			try {
 				data=new JSONArray();
 				data.addAll(roleList);
-				System.out.println(data.toString());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
 			
 			return "success";
 		}
