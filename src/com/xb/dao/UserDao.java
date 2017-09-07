@@ -7,4 +7,5 @@ import com.xb.entity.User;
 public interface UserDao {
 	public User findByUser(User user);
 	public List<User> getUserList();
+	public Integer save(User user);
 }

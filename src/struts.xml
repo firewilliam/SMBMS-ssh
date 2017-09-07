@@ -9,6 +9,11 @@
 	<action name="user" class="com.xb.action.UserAction" method="user">
 		<result name="list" type="redirectAction">list</result>
 		<result name="roleList" type="redirectAction">roleList</result>
+		<result name="addNewUser" type="redirectAction">addNewUser</result>
+		<result type="json" name="success"><!--
+		这行不知道干嘛的，但是需要,而且必须是root
+			--><param name="root">data</param>
+		</result>
 	</action>
 	<action name="list" class="com.xb.action.UserAction" method="list">
 		<result name="success">/jsp/userlist.jsp</result>
@@ -19,6 +24,10 @@
 		这行不知道干嘛的，但是需要,而且必须是root
 			--><param name="root">data</param>
 		</result>
+	</action>
+	<action name="addNewUser" class="com.xb.action.UserAction" method="addNewUser">
+		<result name="success">/jsp/frame.jsp</result>
+		<result name="none">/jsp/useradd.jsp</result>
 	</action>
 </package>
 

@@ -3,6 +3,7 @@ package com.xb.action;
 import java.util.List;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSONArray;
 import com.opensymphony.xwork2.ActionContext;
 import com.xb.entity.User;
 import com.xb.service.UserService;
@@ -14,18 +15,24 @@ public class UserAction {
 	private String error;
 	private Map<String, Object> userSession;
 	private String method;
-	
+	private JSONArray data;
+	private String userCode;
+
 	//方法分流
 	public String user(){
 		if(method.equals("list")){
 			return "list";
 		}else if(method.equals("getrolelist")){
 			return "roleList";
+		}else if(method.equals("add")){
+			return "addNewUser";
+		}else if(method.equals("ucexist")){
+			return this.checkUserCode();
 		}
 		return null;
 	}
-	
-	
+
+
 	public String login(){
 		User result=userService.login(user);
 		if(result!=null&&result.getUserPassword().equals(user.getUserPassword())){
@@ -38,7 +45,7 @@ public class UserAction {
 			return "input";
 		}
 	}
-	
+
 	public String list(){
 		List<User> result=userService.getUserList();
 		if(result!=null){
@@ -48,13 +55,52 @@ public class UserAction {
 			return "none";
 		}
 	}
-	
-	
-	
-	
-	
 
-	
+	public String addNewUser(){
+		Integer i=userService.addNewUser(user);
+		if(i==1){
+			return "success";
+		}
+		return "none";
+
+	}
+	public String checkUserCode(){
+		if(!userService.checkUserCode(userCode)){
+			userCode="exist";
+		}
+
+		data=new JSONArray();
+		data.add(userCode);
+
+		return "success";
+	}
+
+
+
+
+
+
+
+	public String getUserCode() {
+		return userCode;
+	}
+
+
+	public void setUserCode(String userCode) {
+		this.userCode = userCode;
+	}
+
+
+	public JSONArray getData() {
+		return data;
+	}
+
+
+	public void setData(JSONArray data) {
+		this.data = data;
+	}
+
+
 	public String getMethod() {
 		return method;
 	}
@@ -99,8 +145,8 @@ public class UserAction {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
-	
-	
+
+
+
+
 }

@@ -30,4 +30,15 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 		return list;
 	}
 
+	@Override
+	public Integer save(User user) {
+		Integer i=0;
+		i= (Integer) this.getHibernateTemplate().save(user);
+		
+		
+		
+		
+		return i;
+	}
+
 }

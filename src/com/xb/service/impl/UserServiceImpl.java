@@ -39,5 +39,24 @@ public class UserServiceImpl implements UserService{
 		}
 	}
 
+	@Override
+	public Integer addNewUser(User user) {
+		Integer i=userDao.save(user);
+		
+		
+		return i;
+	}
+	@Override
+	public boolean checkUserCode(String userCode) {//返回false表示存在此用户，返回true表示此用户名可用
+		User user=new User();
+		user.setUserCode(userCode);
+		User result=userDao.findByUser(user);
+		if(result!=null&&result.getUserCode().equals(userCode)){
+			return false;
+		}
+		
+		return true;
+	}
+
 	
 }
