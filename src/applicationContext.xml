@@ -45,20 +45,4 @@
 
 	</bean>
 
-	<bean id="userDao" class="com.xb.dao.impl.UserDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-
-	<bean id="userService" class="com.xb.service.impl.UserServiceImpl">
-		<property name="userDao" ref="userDao"></property>
-	</bean>
-
-	<bean class="com.xb.action.UserAction">
-		<property name="userService" ref="userService"></property>
-	</bean>
-
-
-
-
-
-</beans>
+	</beans>

@@ -4,7 +4,7 @@ var userObj;
 function deleteUser(obj){
 	$.ajax({
 		type:"GET",
-		url:path+"/jsp/user.do",
+		url:path+"/jsp/user",
 		data:{method:"deluser",uid:obj.attr("userid")},
 		dataType:"json",
 		success:function(data){

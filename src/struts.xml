@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-<package name="default" namespace="/" extends="struts-default">
+<package name="default" namespace="/" extends="json-default">
 	<action name="login" class="com.xb.action.UserAction" method="login">
 		<result name="success">/jsp/frame.jsp</result>
 		<result name="input">/login.jsp</result>
 	</action>
+	<action name="user" class="com.xb.action.UserAction" method="user">
+		<result name="list" type="redirectAction">list</result>
+		<result name="roleList" type="redirectAction">roleList</result>
+	</action>
 	<action name="list" class="com.xb.action.UserAction" method="list">
 		<result name="success">/jsp/userlist.jsp</result>
 		<result name="none">/jsp/frame.jsp</result>
+	</action>
+	<action name="roleList" class="com.xb.action.RoleAction" method="getRoleList">
+		<result type="json" name="success"></result>
 	</action>
 </package>
 

@@ -13,6 +13,18 @@ public class UserAction {
 	private List<User> userList;
 	private String error;
 	private Map<String, Object> userSession;
+	private String method;
+	
+	//方法分流
+	public String user(){
+		if(method.equals("list")){
+			return "list";
+		}else if(method.equals("getrolelist")){
+			return "roleList";
+		}
+		return null;
+	}
+	
 	
 	public String login(){
 		User result=userService.login(user);
@@ -40,8 +52,17 @@ public class UserAction {
 	
 	
 	
+	
 
 	
+	public String getMethod() {
+		return method;
+	}
+
+	public void setMethod(String method) {
+		this.method = method;
+	}
+
 	public Map<String, Object> getUserSession() {
 		return userSession;
 	}
